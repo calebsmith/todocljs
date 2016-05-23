@@ -2,6 +2,7 @@
   (:require [quiescent.core :as q :include-macros true]
             [quiescent.dom :as d]
             [todocljs.world :refer [world]]
+            [todocljs.history :as history]
             [todocljs.components :refer [Root]]))
 
 (enable-console-print!)
@@ -19,13 +20,7 @@
   "Application entry point"
   []
   (let [root-el (.getElementById js/document root-element-id)]
+    (history/init)
     (render root-el)))
 
 (defn on-js-reload [])
-
-
-(comment
-
-  (:items @world)
-
-  )

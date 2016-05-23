@@ -1,4 +1,4 @@
-(defproject hi "0.1.0-SNAPSHOT"
+(defproject todocljs "0.1.0-SNAPSHOT"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -9,7 +9,8 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.8.51"]
                  [org.clojure/core.async "0.2.374"
-                  :exclusions [org.clojure/tools.reader]]]
+                  :exclusions [org.clojure/tools.reader]]
+                 [quiescent/quiescent "0.2.0-alpha1"]]
   
   :plugins [[lein-figwheel "0.5.3-1"]
             [lein-cljsbuild "1.1.3" :exclusions [[org.clojure/clojure]]]]
@@ -23,11 +24,11 @@
                 :source-paths ["src"]
 
                 ;; If no code is to be run, set :figwheel true for continued automagical reloading
-                :figwheel {:on-jsload "hi.core/on-js-reload"}
+                :figwheel {:on-jsload "todocljs.core/on-js-reload"}
 
-                :compiler {:main hi.core
+                :compiler {:main todocljs.core
                            :asset-path "js/compiled/out"
-                           :output-to "resources/public/js/compiled/hi.js"
+                           :output-to "resources/public/js/compiled/todocljs.js"
                            :output-dir "resources/public/js/compiled/out"
                            :source-map-timestamp true}}
                ;; This next build is an compressed minified build for
@@ -35,8 +36,8 @@
                ;; lein cljsbuild once min
                {:id "min"
                 :source-paths ["src"]
-                :compiler {:output-to "resources/public/js/compiled/hi.js"
-                           :main hi.core
+                :compiler {:output-to "resources/public/js/compiled/todocljs.js"
+                           :main todocljs.core
                            :optimizations :advanced
                            :pretty-print false}}]}
 

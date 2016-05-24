@@ -1,7 +1,7 @@
 (ns todocljs.components
   (:require [quiescent.core :as q :include-macros true]
             [quiescent.dom :as d]
-            [todocljs.world :refer [update-world!]]
+            [todocljs.world :refer [update-world! world]]
             [todocljs.data :as data]))
 
 (defn class-name
@@ -124,3 +124,11 @@
          (Body state)
          (Footer state)))
 
+
+(comment
+
+  (update-world! data/add-item "Give Talk at TriClojure")
+
+  (:items @world)
+
+  )

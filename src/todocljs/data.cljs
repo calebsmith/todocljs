@@ -1,9 +1,5 @@
 (ns todocljs.data)
 
-(defn update-world!
-  [update-fn arg]
-  (swap! world update-fn arg))
-
 (defn add-item
   [state text]
   (update state :items
